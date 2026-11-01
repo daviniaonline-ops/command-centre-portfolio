@@ -1,0 +1,11 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {groupCalendarDays,combineCalendarPosts,calendarVersionId} from '../docs/modules/calendar-days.js';
+import {classifyFit,matchesFitClassification} from '../docs/modules/targeting-fit.js';
+import {seed} from '../docs/data.js';
+test('calendar groups same-day content without dropping channel versions',()=>{const days=groupCalendarDays(seed.posts,p=>p.date);assert.equal(days.length,5);assert.equal(days[0].posts.length,2);assert.equal(days.flatMap(d=>d.posts).length,seed.posts.length);});
+test('calendar sorts dates without mutating input',()=>{const input=[{date:'2027-02-03'},{date:'2027-02-01'}];const copy=structuredClone(input);assert.equal(groupCalendarDays(input,p=>p.date)[0].date,'2027-02-01');assert.deepEqual(input,copy);});
+test('daily grouping retains distinct content identities',()=>{const posts=[{key:'a',title:'A',type:'Scheduled social post',versions:[{platform:'LinkedIn'}]},{key:'b',title:'B',type:'Draft',versions:[{platform:'LinkedIn'}]}];const result=combineCalendarPosts(posts,p=>p.title);assert.equal(result.title,'B');assert.deepEqual(result.versions.map(calendarVersionId),['a:LinkedIn','b:LinkedIn']);});
+test('empty daily grouping fails explicitly',()=>assert.throws(()=>combineCalendarPosts([],p=>p.title)));
+test('fit boundaries are consistent for every supported band',()=>{for(const [value,expected] of [[0,'Weak match'],[59,'Weak match'],[60,'Possible match'],[79,'Possible match'],[80,'Strong match'],[100,'Strong match'],[null,'Unscored'],[undefined,'Unscored'],[NaN,'Unscored'],[Infinity,'Unscored']])assert.equal(classifyFit(value),expected);});
+test('filter respects score and evidence state',()=>{assert.equal(matchesFitClassification(80,'Strong match'),true);assert.equal(matchesFitClassification(79,'Strong match'),false);assert.equal(matchesFitClassification(null,'All'),true);assert.equal(matchesFitClassification(null,'Needs enrichment','Enrichment pending'),true);});

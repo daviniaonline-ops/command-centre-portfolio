@@ -1,0 +1,1 @@
+{"name":"command-centre-public-showcase","version":"1.0.0","private":true,"type":"module","description":"Public portfolio demo of Build From Abroad Command Centre by Davinia Edafioka","engines":{"node":">=22.13.0"},"scripts":{"build":"node scripts/build.mjs","test":"npm run build && node --test tests/*.test.mjs"}}
