@@ -7,7 +7,9 @@ Command Centre brings business workstreams, content review and operational tasks
 
 **This is a standalone demonstration, not the private production application. All metrics, tasks, posts and prospects in the demo are fictional.**
 
-Davinia uses the private Command Centre in her daily and weekly business routines. This showcase demonstrates a selection of those workflows.\n\n## Try it
+Davinia uses the private Command Centre in her daily and weekly business routines. This showcase demonstrates a selection of those workflows.\n\n**[Open the live demo](https://daviniaonline-ops.github.io/command-centre-portfolio/)**
+
+## Try it
 
 Open **START-HERE.html** in a modern browser. It is self-contained, with no installation, account or internet connection required. Download the file first if your file viewer does not run JavaScript.
 
@@ -77,7 +79,7 @@ Suggested repository name: `command-centre-portfolio`.
 
 Suggested description: `A founder-led business operations dashboard: content planning, task workflows and prospect-fit classification. Interactive demo with fictional data.`
 
-Create a public repository and upload the extracted project files, not just the ZIP. GitHub Pages can serve the static `docs` directory. See `PUBLISHING.md` for the short checklist. No repository or public website was created as part of preparing this package.
+Create a public repository and upload the extracted project files, not just the ZIP. GitHub Pages can serve the static `docs` directory. See `PUBLISHING.md` for the short checklist. This project is published publicly on GitHub, with its static demo hosted on GitHub Pages.
 
 ## Validation
 
