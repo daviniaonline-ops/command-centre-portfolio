@@ -7,7 +7,7 @@ Command Centre brings business workstreams, content review and operational tasks
 
 **This is a standalone demonstration, not the private production application. All metrics, tasks, posts and prospects in the demo are fictional.**
 
-## Try it
+Davinia uses the private Command Centre in her daily and weekly business routines. This showcase demonstrates a selection of those workflows.\n\n## Try it
 
 Open **START-HERE.html** in a modern browser. It is self-contained, with no installation, account or internet connection required. Download the file first if your file viewer does not run JavaScript.
 
